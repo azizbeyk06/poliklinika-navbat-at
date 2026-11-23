@@ -219,7 +219,7 @@ if (!isDoctorAvailable(doctor, date)) {
 
         const appointment = {
             id: Date.now(),
-            number: queue.length + 1,
+            number: getNextQueueNumber(),
             patientName: patient.fullname,
             doctorName: doctor.name,
             date: date,
@@ -234,7 +234,16 @@ if (!isDoctorAvailable(doctor, date)) {
         alert("Bemor navbatga muvaffaqiyatli yozildi!");
     });
 }
+// Keyingi bo'sh navbat raqamini aniqlash
+function getNextQueueNumber() {
+    if (queue.length === 0) {
+        return 1;
+    }
 
+    const maxNumber = Math.max(...queue.map(item => item.number));
+
+    return maxNumber + 1;
+}
 // Navbatlarni jadvalga chiqarish
 function displayQueue() {
     const queueList = document.getElementById("queueList");
