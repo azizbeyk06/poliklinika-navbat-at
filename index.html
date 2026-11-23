@@ -1,64 +1,122 @@
+
 <!DOCTYPE html>
 <html lang="uz">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Poliklinika navbat tizimi</title>
+    <title>Poliklinika navbat AT</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <header>
     <h1>Poliklinika navbat tizimi</h1>
-    <p>Bemorlarni ro‘yxatga olish tizimi</p>
+    <p>Bemorlarni ro‘yxatga olish va navbatni boshqarish</p>
 </header>
 
+<nav>
+    <a href="#patients">Bemorlar</a>
+    <a href="#doctors">Shifokorlar</a>
+    <a href="#queue">Navbatlar</a>
+</nav>
+
 <main>
-    <section class="patient-registration">
+
+    <!-- 1. Bemorlarni ro'yxatga olish -->
+    <section id="patients">
         <h2>Yangi bemorni ro‘yxatga olish</h2>
 
         <form id="patientForm">
-
             <label for="fullname">F.I.Sh.</label>
-            <input
-                type="text"
-                id="fullname"
-                placeholder="Ism va familiyangizni kiriting"
-                required
-            >
+            <input type="text" id="fullname" required>
 
             <label for="phone">Telefon raqami</label>
-            <input
-                type="tel"
-                id="phone"
-                placeholder="+998 90 123 45 67"
-                required
-            >
+            <input type="tel" id="phone" placeholder="+998901234567" required>
 
             <label for="birthdate">Tug‘ilgan sana</label>
-            <input
-                type="date"
-                id="birthdate"
-                required
-            >
+            <input type="date" id="birthdate" required>
+
             <label for="address">Yashash manzili</label>
-<input
-    type="text"
-    id="address"
-    placeholder="Samarqand shahri, ..."
-    required
->
+            <input type="text" id="address" required>
 
-            <button type="submit">
-                Bemorni ro‘yxatga olish
-            </button>
-
+            <button type="submit">Bemorni ro‘yxatga olish</button>
         </form>
+
+        <h3>Bemorlar ro‘yxati</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>№</th>
+                    <th>F.I.Sh.</th>
+                    <th>Telefon</th>
+                    <th>Tug‘ilgan sana</th>
+                    <th>Manzil</th>
+                </tr>
+            </thead>
+            <tbody id="patientList"></tbody>
+        </table>
     </section>
+
+    <!-- 2. Shifokorlar ish jadvali -->
+    <section id="doctors">
+        <h2>Shifokorlar ish jadvali</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>№</th>
+                    <th>Shifokor</th>
+                    <th>Mutaxassislik</th>
+                    <th>Ish kunlari</th>
+                    <th>Ish vaqti</th>
+                </tr>
+            </thead>
+            <tbody id="doctorList"></tbody>
+        </table>
+    </section>
+
+    <!-- 3. Bemorlar navbati -->
+    <section id="queue">
+        <h2>Bemorni navbatga yozish</h2>
+
+        <form id="queueForm">
+            <label for="queuePatient">Bemorni tanlang</label>
+            <select id="queuePatient" required>
+                <option value="">Bemorni tanlang</option>
+            </select>
+
+            <label for="queueDoctor">Shifokorni tanlang</label>
+            <select id="queueDoctor" required>
+                <option value="">Shifokorni tanlang</option>
+            </select>
+
+            <label for="queueDate">Qabul sanasi</label>
+            <input type="date" id="queueDate" required>
+
+            <button type="submit">Navbatga yozish</button>
+        </form>
+
+        <h3>Navbatlar ro‘yxati</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Navbat №</th>
+                    <th>Bemor</th>
+                    <th>Shifokor</th>
+                    <th>Sana</th>
+                    <th>Holat</th>
+                </tr>
+            </thead>
+            <tbody id="queueList"></tbody>
+        </table>
+    </section>
+
 </main>
 
-<script src="script.js"></script>
+<footer>
+    <p>Poliklinika navbat AT</p>
+</footer>
 
+<script src="script.js"></script>
 </body>
 </html>
