@@ -1,1 +1,57 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poliklinika navbat tizimi</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 
+<body>
+
+<header>
+    <h1>Poliklinika navbat tizimi</h1>
+    <p>Bemorlarni ro‘yxatga olish tizimi</p>
+</header>
+
+<main>
+    <section class="patient-registration">
+        <h2>Yangi bemorni ro‘yxatga olish</h2>
+
+        <form id="patientForm">
+
+            <label for="fullname">F.I.Sh.</label>
+            <input
+                type="text"
+                id="fullname"
+                placeholder="Ism va familiyangizni kiriting"
+                required
+            >
+
+            <label for="phone">Telefon raqami</label>
+            <input
+                type="tel"
+                id="phone"
+                placeholder="+998 90 123 45 67"
+                required
+            >
+
+            <label for="birthdate">Tug‘ilgan sana</label>
+            <input
+                type="date"
+                id="birthdate"
+                required
+            >
+
+            <button type="submit">
+                Bemorni ro‘yxatga olish
+            </button>
+
+        </form>
+    </section>
+</main>
+
+<script src="script.js"></script>
+
+</body>
+</html>
