@@ -72,7 +72,21 @@ function displayDoctors() {
 
     updateDoctorSelect();
 }
+// Shifokorning qabul kunini tekshirish
+function isDoctorAvailable(doctor, selectedDate) {
+    const date = new Date(selectedDate + "T00:00:00");
+    const day = date.getDay();
 
+    const availableDays = {
+        "Dushanba - Juma": [1, 2, 3, 4, 5],
+        "Dushanba - Shanba": [1, 2, 3, 4, 5, 6],
+        "Har kuni": [0, 1, 2, 3, 4, 5, 6]
+    };
+
+    const days = availableDays[doctor.days] || [];
+
+    return days.includes(day);
+}
 // Shifokor tanlash ro'yxati
 function updateDoctorSelect() {
     const select = document.getElementById("queueDoctor");
