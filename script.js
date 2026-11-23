@@ -267,6 +267,22 @@ function displayQueue() {
             row.appendChild(cell);
         });
 
+                const actionCell = document.createElement("td");
+
+        const button = document.createElement("button");
+        button.textContent = "Qabul qilindi";
+        button.type = "button";
+        button.disabled = item.status === "Qabul qilindi";
+
+        button.addEventListener("click", function () {
+            item.status = "Qabul qilindi";
+            saveQueue();
+            displayQueue();
+        });
+
+        actionCell.appendChild(button);
+        row.appendChild(actionCell);
+
         queueList.appendChild(row);
     });
 }
