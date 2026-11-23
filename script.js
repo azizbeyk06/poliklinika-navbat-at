@@ -211,6 +211,11 @@ if (queueForm) {
             alert("Bemor yoki shifokor topilmadi!");
             return;
         }
+        // Shifokorning qabul kunini tekshirish
+if (!isDoctorAvailable(doctor, date)) {
+    alert("Tanlangan kunda shifokor qabul qilmaydi!");
+    return;
+}
 
         const appointment = {
             id: Date.now(),
